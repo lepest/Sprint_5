@@ -1,15 +1,10 @@
 #Вход через кнопку в форме восстановления пароля
 
-from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
 from locators import TestLocators
 from data import TestData
-
 
 class TestFormPasswordRecovery:
 
