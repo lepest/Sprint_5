@@ -4,10 +4,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import TestLocators
 from data import TestData
+from data import TestUrl
 
 class TestLoginToAccount:
     def test_enter_login_to_account(self, driver):
-        driver.get(TestData.main_page_url)
+        driver.get(TestUrl.main_page_url)
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.ELEMENTS_MAIN_PAGE))
         driver.find_element(*TestLocators.BUTTON_ENTER_TO_ACCOUNT).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.FORM_ENTER_TO_PERSONAL_ACCOUNT))

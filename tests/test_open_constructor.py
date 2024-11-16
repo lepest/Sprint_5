@@ -5,10 +5,11 @@ from selenium.webdriver.support import expected_conditions
 
 from locators import TestLocators
 from data import TestData
+from data import TestUrl
 
 class TestFollowToPersonalAccount:
     def test_go_to_personal_account(self, driver):
-        driver.get(TestData.main_page_url)
+        driver.get(TestUrl.main_page_url)
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.ELEMENTS_MAIN_PAGE))
         driver.find_element(*TestLocators.SEARCH_PERSONAL_ACCOUNT).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.FORM_ENTER_TO_PERSONAL_ACCOUNT))
@@ -22,4 +23,3 @@ class TestFollowToPersonalAccount:
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.PERSONAL_ACCOUNT_FORM))
         driver.find_element(*TestLocators.BUTTON_CONSTRUCTOR).click()
         assert WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.ELEMENTS_MAIN_PAGE))
-        driver.quit()

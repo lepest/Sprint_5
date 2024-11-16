@@ -1,18 +1,25 @@
 import pytest
 
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as chrome_options
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from locators import TestLocators
-from data import TestData
+from helpers import Helpers
 
 @pytest.fixture(scope='function')
 def driver():
     web_driver = webdriver.Chrome()
-    # search_form = SearchForm(driver, TestLocators.SEARCH_FORM_LOCATOR)
     return web_driver
     web_driver.quit()
 
+@pytest.fixture
+def helpers_name():
+    name = Helpers.random_name()
+    return name
+
+@pytest.fixture
+def helpers_email():
+    email = Helpers.random_email()
+    return email
+
+@pytest.fixture
+def helpers_password():
+    password = Helpers.random_password()
+    return password

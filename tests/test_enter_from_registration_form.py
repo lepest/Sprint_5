@@ -5,11 +5,12 @@ from selenium.webdriver.support import expected_conditions
 
 from locators import TestLocators
 from data import TestData
+from data import TestUrl
 
 class TestEnterFromRegistrationForm:
 
     def test_enter_from_registration_form(self, driver):
-        driver.get(TestData.main_page_url)
+        driver.get(TestUrl.main_page_url)
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.ELEMENTS_MAIN_PAGE))
         driver.find_element(*TestLocators.SEARCH_PERSONAL_ACCOUNT).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocators.FORM_ENTER_TO_PERSONAL_ACCOUNT))
@@ -23,4 +24,3 @@ class TestEnterFromRegistrationForm:
         WebDriverWait(driver, 3).until(expected_conditions.element_to_be_clickable(TestLocators.LINK_LOGO))
         driver.find_element(*TestLocators.LINK_LOGO).click()
         assert WebDriverWait(driver, 3).until(expected_conditions.element_to_be_clickable(TestLocators.BUTTON_PLACE_AN_ORDER))
-        driver.quit()
