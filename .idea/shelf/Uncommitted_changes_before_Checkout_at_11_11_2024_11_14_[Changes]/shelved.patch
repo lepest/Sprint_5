@@ -1,0 +1,63 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1731312700632)
++++ b/.gitignore	(date 1731312700632)
+@@ -0,0 +1,2 @@
++.idea
++__pycache__
+Index: conftest.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/conftest.py b/conftest.py
+new file mode 100644
+--- /dev/null	(date 1731312303221)
++++ b/conftest.py	(date 1731312303221)
+@@ -0,0 +1,16 @@
++import pytest
++
++from selenium import webdriver
++from selenium.webdriver.chrome.options import Options as chrome_options
++from selenium.webdriver.common.by import By
++
++from selenium.webdriver.support.wait import WebDriverWait
++from selenium.webdriver.support import expected_conditions
++
++@pytest.fixture
++def driver():
++    web_driver = webdriver.Chrome()
++    # search_form = SearchForm(driver, TestLocators.SEARCH_FORM_LOCATOR)
++    return web_driver
++    web_driver.quit()
++
+Index: locators.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/locators.py b/locators.py
+new file mode 100644
+--- /dev/null	(date 1731312310229)
++++ b/locators.py	(date 1731312310229)
+@@ -0,0 +1,12 @@
++from selenium import webdriver
++from selenium.webdriver.common.by import By
++from selenium.webdriver.support.wait import WebDriverWait
++from selenium.webdriver.support import expected_conditions
++
++
++class TestLocators:
++    SEARCH_FORM_LOCATOR = [By.XPATH, "//*[@CLASS='App_App__aOmNj"]
++    #SEARCH_BUTTON =
++    SEARCH_NAME = By.XPATH, ".//form/fieldset[1]//input"
++    SEARCH_PERSONAL_ACCOUNT = By.LINK_TEXT, "Личный Кабинет"
++    SEARCH_REGISTRATION = By.LINK_TEXT, "Зарегистрироваться"
+\ No newline at end of file
+diff --git a/data.py b/data.py
+new file mode 100644
